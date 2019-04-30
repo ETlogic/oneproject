@@ -1,0 +1,65 @@
+<!--pages/news/news2/news2.wxml-->
+<view class='baseview'>
+    <scroll-view scroll-x='{{true}}' class='scrollview' bindscroll='bscroll' scroll-with-animation="{{ture}}" scroll-into-view='{{toview}}' >
+          <view class='scrollcview'>
+
+            <block wx:for="{{news.type}}" wx:key="{{news.type.typevalue}}">
+                <view id='{{item.typevalue}}'class='swiper-item {{currentIndex==index?"active":""}}' data-current='{{index}}' bindtap='changeCurrent'>{{item.typename}}</view>
+            </block>
+          </view>
+     </scroll-view>  
+  
+    <view class='swiperview'>
+        <swiper class='swview' current='{{currentIndex}}' bindchange='switchTab'>
+            <!-- <swiper-item item-id='toutiao'>
+                 <scroll-view scroll-y="{{true}}" class='scrollnews'> 
+                    <view class='scrollnewscell'>
+                     
+                   </view>
+                </scroll-view> 
+            </swiper-item> -->
+            <block wx:for="{{news.type}}" wx:key="{{news.type.typevalue}}">
+              <swiper-item item-id="{{item.typevalue}}">
+                <scroll-view scroll-y="{{true}}" class='scrollnews'> 
+                    <view class='scrollnewscell'>
+                      <block wx:if="{{currentIndex==index}}">
+
+                        <block wx:for='{{newslist}}' wx:key='{{uniquekey}}'>
+                             <block wx:if='{{item.thumbnail_pic_s03==undefinded}}'>
+                                <view class='newcell2' data-url='{{item.url}}' bindtap='checkdetail'>
+                                  <view class='leftview'>
+                                   <text class='title'>{{item.title}}</text>
+                                   <text class='author_time' decode="{{true}}">{{item.author_name}} &nbsp;&nbsp;&nbsp; {{item.date}}</text>
+                                   </view>
+                                  <view class='rightview'>
+                                   <image  class='rimg' src='{{item.thumbnail_pic_s}}'></image>
+                                   </view>
+                                 </view>
+                               </block>
+
+                            <block wx:else>
+                              <view class='newcell' data-url='{{item.url}}' bindtap='checkdetail'>
+                               <view class='topcontent'>
+                                   <text>{{item.title}}</text>
+                                 </view>
+                              <view class='newimg'>
+                                   <image  class='nimg' src="{{item.thumbnail_pic_s}}"></image>
+                                   <image class='nimg' src="{{item.thumbnail_pic_s02}}"></image>
+                                  <image class='nimg' src="{{item.thumbnail_pic_s03}}"></image>
+                              </view>
+                              <view class='bottomcontent'>
+                                 <text decode="{{true}}">{{item.author_name}}  &nbsp;&nbsp;&nbsp; {{item.date}}</text>
+                               </view>
+                              </view>
+                             </block>
+
+                         </block> 
+                              
+                      </block>
+                     </view> 
+                 </scroll-view> 
+               </swiper-item>
+            </block>
+        </swiper>
+    </view>
+</view>

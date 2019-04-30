@@ -1,0 +1,16 @@
+<!--pages/telephone/telephoneList/telephoneList.wxml-->
+<view class='baseview'>
+  <view class="topview">
+      <text>电话簿</text>
+  </view>
+  <scroll-view class='scrollview' scroll-y="{{true}}">
+      <view class="scview">
+          <block wx:for="{{telephoneList}}">
+            <view class="cell" bindtap='phone' data-number='{{item.number}}' >
+                <text class='celltext'>{{item.name}}</text>
+                <image class='cellimg' src='http://logic.natapp1.cc/images/arrowRight.png'></image>
+            </view>
+          </block>
+      </view>
+  </scroll-view>
+</view>

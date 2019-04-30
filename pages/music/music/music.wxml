@@ -1,0 +1,43 @@
+<!--pages/music/music/music.wxml-->
+<view class='baseview'>
+    <view class='topview'>
+        <view class='musictitle'>
+            <image class="titleimg" src="{{music.musicIcon[1].src}}"></image>
+            <text>播放列表</text>
+        </view>
+        <scroll-view scroll-y="{{true}}">
+            <view class='musiclist'>
+              <block wx:for="{{music.musiclist}}">
+                <view class='music' hover-class='hover' id="{{index}}" data-music='{{item}}' bindtap='playMusic'>
+                    <block wx:if="{{index==currentMusic}}">
+                       <image class='musicimgla' src="{{music.musicIcon[3].src}}"></image>
+                    </block>
+                    <block wx:else>
+                        <image class='musicimg' src="{{item.img}}"></image>
+                    </block>     
+                    <view class='musiccontent'>
+                      <text class="musicname">{{item.name}}</text>
+                      <text class='musicauthor'>{{item.author}}</text>
+                    </view>
+                    <image class="musicimg2" src="{{music.musicIcon[2].src}}"></image>
+                </view>
+              </block>
+            </view>
+        </scroll-view>
+    </view>
+    <view class='bottomview'>
+        <view class='bottommusic'  >
+            <image class='bmusicimg1' src="{{img}}"></image>
+            <view class='musiccontent bmusiccontent'>
+                <text class="musicname">{{name}}</text>
+                <text class='musicauthor'>{{author}}</text>
+            </view>
+            <block wx:if="{{isplay==true}}">
+                <image class="bmusicimg2" src="{{music.musicIcon[1].src}}" bindtap='musicPause'></image>
+            </block>
+            <block wx:else>
+                <image class="bmusicimg2" src="{{music.musicIcon[0].src}}" bindtap='musicPlay'></image>
+            </block>
+        </view>
+    </view>
+</view>

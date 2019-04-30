@@ -1,0 +1,129 @@
+<!--pages/weather/weather/weather.wxml-->
+<view class="baseview">
+    <view class="topview">
+        <view class='search' bindtap='toSearchCity' data-currentcity='{{result.today.city}}'>
+            <image class="positionimg" src='{{weather.weatherImg[8].imagePath}}'></image>
+            <text>{{result.today.city}}</text>
+        </view>
+        <view class='today'>
+            <text class='temperature'>{{result.sk.temp}}°</text>
+            <text class='weather'>{{result.today.weather}}</text>
+            <text class='wind'>{{result.sk.wind_direction}}{{result.sk.wind_strength}}</text>
+        </view>
+    </view>
+
+    <view class='middle'>
+        <view class='middlecell'>
+            <view class='cell1'>
+                  <text>今天</text>
+                  <text>{{result.future[0].temperature}}</text>
+            </view>
+            <view class='cell1'>
+                  <text>{{result.future[0].weather}}</text>
+                  <image class="img" src='{{weatherImg[0].imgPath}}'></image>
+            </view>
+        </view>
+        <view class='middlecell'>
+            <view class='cell1'>
+                  <text>明天</text>
+                  <text>{{result.future[1].temperature}}</text>
+            </view>
+            <view class='cell1'>
+                  <text>{{result.future[1].weather}}</text>
+                  <image class="img" src='{{weatherImg[1].imgPath}}'></image>
+            </view>
+        </view>
+    </view>
+
+    <scroll-view class='bottomview' scroll-y="{{true}}">
+        <view class='bviewcell'>
+            <view class='bottomcell1'>
+                <!-- <view class="funcname">7天预报</view> -->
+                <view class="futureweather">
+                    <swiper class='swview'>
+                      <block wx:for="{{result.future}}">
+                        <swiper-item>
+                            <view class='fwdetail'>
+                                <view class='fwdetailcell1'>
+                                    <view class='fwdetailcell11'>
+                                        <text class='fwdetailcell11text'>{{item.date}}</text>
+                                    </view>
+                                    <view class='fwdetailcell12'>
+                                        <!-- <text>{{result.future[0].date}}</text> -->
+                                    </view>
+                                    <view class='fwdetailcell13'>
+                                        <image class="fwdetailcell13img" src='{{weatherImg[index].imgPath}}'></image>
+                                    </view>
+                                    <view class='fwdetailcell14'>
+                                        <text class='fwdetailcell14text'>{{item.temperature}}</text>
+                                        <text >{{item.weather}}</text>
+                                        <text >{{item.wind}}</text>
+                                    </view>
+                                </view>
+                            </view>
+                        </swiper-item>
+                       </block>  
+                    </swiper>
+                </view>
+            </view>
+            <view class='bottomcell2'>
+                <view class="bottomcell21">
+                    <image class="bc21img" src='{{weather.lifeImg[0].imagePath}}'></image>
+                    <text class='bc21text1'>
+                      <block wx:if="{{result.today.dressing_index}}">{{result.today.dressing_index}}</block>
+                      <block wx:else>无</block>
+                    </text>
+                    <text class='bc21text2'>穿衣</text>
+                </view>
+                <view class="bottomcell21">
+                    <image class="bc21img" src='{{weather.lifeImg[1].imagePath}}'></image>
+                    <text class='bc21text1'>
+                      <block wx:if="{{result.today.uv_index}}">{{result.today.uv_index}}</block>
+                      <block wx:else>无</block>
+                    </text>
+                    <text class='bc21text2'>紫外线</text>
+                </view>
+                <view class="bottomcell21">
+                    <image class="bc21img" src='{{weather.lifeImg[2].imagePath}}'></image>
+                    <text class='bc21text1'>
+                    <block wx:if="{{result.today.comfort_index}}">{{result.today.comfort_index}}</block>
+                      <block wx:else>无</block>
+                    </text>
+                    <text class='bc21text2'>舒适度</text>
+                </view>
+                <view class="bottomcell21">
+                    <image class="bc21img" src='{{weather.lifeImg[3].imagePath}}'></image>
+                    <text class='bc21text1'>
+                    <block wx:if="{{result.today.wash_index}}">{{result.today.wash_index}}</block>
+                      <block wx:else>无</block>
+                    </text>
+                    <text class='bc21text2'>洗车</text>
+                </view>
+                <view class="bottomcell21">
+                    <image class="bc21img" src='{{weather.lifeImg[4].imagePath}}'></image>
+                    <text class='bc21text1'>
+                    <block wx:if="{{result.today.travel_index}}">{{result.today.travel_index}}</block>
+                      <block wx:else>无</block>
+                    </text>
+                    <text class='bc21text2'>旅游</text>
+                </view>
+                <view class="bottomcell21">
+                    <image class="bc21img" src='{{weather.lifeImg[5].imagePath}}'></image>
+                    <text class='bc21text1'>
+                    <block wx:if="{{result.today.exercise_index}}">{{result.today.exercise_index}}</block>
+                      <block wx:else>无</block>
+                    </text>
+                    <text class='bc21text2'>晨练</text>
+                </view>
+                <view class="bottomcell21">
+                    <image class="bc21img" src='{{weather.lifeImg[6].imagePath}}'></image>
+                    <text class='bc21text1'>
+                      <block wx:if="{{result.today.drying_index}}">{{result.today.drying_index}}</block>
+                      <block wx:else>无</block>
+                    </text>
+                    <text class='bc21text2'>干燥</text>
+                </view>
+            </view>
+        </view>
+    </scroll-view>
+</view>

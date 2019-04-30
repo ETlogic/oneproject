@@ -1,0 +1,105 @@
+/* pages/vedio/vedio.wxss */
+.baseview{
+  width: 100%;
+  height: 100vh;
+  background-color: white;
+}
+
+.video{
+  width: 100%;
+}
+
+.selectvideo{
+  width: 100%;
+  height: 15%;
+  /* background-color: palegoldenrod; */
+  border-bottom: 1px solid gainsboro;
+  white-space: nowrap;
+}
+
+.scrollselectvideo{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: row; 
+  align-items: center;
+}
+
+.videocell{
+  width: 40%;
+  height: 90%;
+  /* border: 1px solid red; */
+  margin-right: 5px;
+  margin-left: 5px;
+  display: inline-block;
+  background-color: whitesmoke;
+  border-radius: 10px;
+}
+
+.videocell1{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  color: transparent;
+}
+
+.videonum{
+  font-size: 14px;
+  padding-left: 10px;
+}
+
+.videoname{
+  font-size: 15px;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  /* word-wrap: break-word; */
+  /* word-break: break-all; */
+  padding-left: 10px;
+
+}
+
+.content{
+  width: 100%;
+  height: 5%;
+  /* border-top: 1px solid gainsboro; */
+}
+
+.select{
+  background-color: #1677b3;
+}
+
+.selecttext{
+  color: white;
+}
+
+.introduction{
+  height: 5%;
+  width: 100%;
+  /* border: 1px solid red; */
+  margin-top: 5px;
+  display: flex;
+  align-items: center;
+
+}
+
+.idcontent{
+  width: 100%;
+  /* border: 1px solid black; */
+  font-size: 13px;
+}
+
+.idimg{
+  width: 4%;
+  height: 50%;
+}
+
+.hover{
+  background-color: whitesmoke;
+}

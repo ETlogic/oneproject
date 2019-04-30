@@ -1,0 +1,2 @@
+<!--pages/music/musicplay/musicplay.wxml-->
+<audio controls='{{true}}' name='{{name}}' src='{{url}}'></audio>

@@ -1,0 +1,175 @@
+/* pages/news/news2/news2.wxss */
+.baseview{
+  width: 100%;
+  height: 100vh;
+  background-color: whitesmoke
+}
+
+.scrollview{
+  width: 100%;
+  height: 50px;
+  line-height: 50px;
+  /* background-color: gold; */
+  white-space: nowrap;
+  border: 1px solid gainsboro;
+  background-color: white;
+}
+
+.scrollcview{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+}
+.swiper-item{
+  height: 100%;
+  /* border: 1px solid pink; */
+  font-size: 18px;
+  padding: 0px 10px 0px 10px;
+}
+
+.swiperview{
+  width: 100%;
+  height: 92%;
+  /* border: 1px solid blue; */
+}
+
+.swview{
+  width: 100%;
+  height: 100%;
+  background-color: whitesmoke;
+}
+
+.active{
+  color: #1677b3;
+  font-size: 22px;
+}
+
+::-webkit-scrollbar{
+width: 0;
+height: 0;
+color: transparent;
+}
+
+
+
+.scrollnews{
+  /* border: 1px solid black; */
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: wrap;
+}
+
+.scrollnewscell{
+  width: 100%;
+  height: 100%;
+  
+}
+
+
+.newcell{
+  width: 100%;
+  height: 25%;
+  /* border: 1px solid red; */
+  margin-bottom: 6px;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+}
+
+.topcontent{
+  width: 100%;
+  height: 30%;
+  font-size: 18px;
+  /* border: 1px solid black; */
+  margin-top: 8px;
+  margin-left: 3px;
+  margin-right: 3px;
+
+}
+
+.newimg{
+  width: 100%;
+  height: 55%;
+  display: flex;
+  /* border: 1px solid blue; */
+  justify-content: center;
+  align-items: center;
+  /* margin-left: 3px;
+  margin-right: 3px; */
+}
+
+.nimg{
+  width: 33%;
+  height: 90%;
+  margin: 2px;
+}
+
+.bottomcontent{
+  width: 100%;
+  height: 15%;
+  font-size: 14px;
+  display: flex;
+  /* border: 1px solid gold; */
+  align-items: center;
+  margin-bottom: 10px;
+  margin-left: 3px;
+  margin-right: 3px;
+}
+
+
+.newcell2{
+  width: 100%;
+  height: 15%;
+  /* border: 1px solid red; */
+  margin-bottom: 6px;
+  background-color: white;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+
+/* 新闻列表 */
+.leftview{
+  width: 60%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  /* border: 1px solid black; */
+  margin-bottom: 10px;
+  margin-top: 20px;
+  margin-left: 3px;
+}
+
+.title{
+  width: 100%;
+  height: 65%;
+  font-size: 18px;
+  /* border: 1px solid blue; */
+
+}
+
+.author_time{
+  width: 100%;
+  height: 35%;
+  font-size: 14px;
+  /* border: 1px solid gold;   */
+
+}
+
+.rightview{
+  width: 40%;
+  height: 100%;
+  margin-bottom: 10px;
+  margin-top: 20px;
+  /* border: 1px solid greenyellow;   */
+
+}
+
+.rimg{
+  width: 85%;
+  height: 85%;
+  margin-left: 10px;
+}

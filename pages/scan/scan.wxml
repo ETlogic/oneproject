@@ -1,0 +1,35 @@
+<!--pages/scan/scan.wxml-->
+<view class='baseview'>
+    <view class='topview'>
+        <text class='title'>条形码扫描</text>
+        <image class="scanImg" src="http://logic.natapp1.cc/images/scan.png" bindtap='scanBarCode'></image>
+    </view>
+    <view class='bottomview'>
+        <view class='productInfo'>
+            <text class='infoTitle'>商品信息</text>
+            <view class='infoDetail'>
+                <text>条形码：</text>
+                <text>商品名称：</text>
+                <text>价格：</text>
+            </view>
+        </view>
+
+        <view class='productInfo'>
+            <text class='infoTitle'>价格比对</text>
+            <view class='infoDetail'>
+                <text>条形码：</text>
+                <text>商品名称：</text>
+                <text>价格：</text>
+            </view>
+        </view>
+
+        <view class='productInfo'>
+            <text class='infoTitle'>电商购买</text>
+            <view class='infoDetail'>
+                <text>条形码：</text>
+                <text>商品名称：</text>
+                <text>价格：</text>
+            </view>
+        </view>
+    </view>
+</view>

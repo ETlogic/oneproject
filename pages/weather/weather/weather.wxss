@@ -1,0 +1,235 @@
+/* pages/weather/weather/weather.wxss */
+.baseview{
+  width: 100%;
+  height: 100vh;
+  background-color: whitesmoke;
+}
+
+.topview{
+  width: 100%;
+  height: 28%;
+  background:linear-gradient(to bottom,#1677b3,white);
+  /* background-image: url(http://4ngvdi.natappfree.cc/images/StockSnap_GDGY6MOESI.jpg);
+  background-size: cover; */
+}
+
+.search{
+  width: 100%;
+  height: 15%;
+  /* border: 1px solid red; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 17px;
+
+}
+.positionimg{
+  width: 5%;
+  height:49%; 
+}
+
+.today{
+  width: 100%;
+  height: 85%;
+  /* border: 1px solid blue; */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items:center; 
+}
+
+.temperature{
+  font-size: 70px;
+  padding-left: 20px;
+  padding-top: 10px;
+}
+
+.weather{
+  font-size: 20px;
+}
+
+.wind{
+  font-size: 15px;
+}
+
+.middle{
+  width: 100%;
+  height: 15%;  
+  display: flex;
+  align-items: center;
+  background-color: white;
+}
+
+.middlecell{
+  width: 50%;
+  height: 80%;
+  /* border: 1px solid red; */
+}
+
+.cell1{
+  height: 50%;
+  width: 100%;
+  /* border: 1px solid blue; */
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border-right: 1px solid gainsboro;
+}
+
+.bottomview{
+  width: 100%;
+  height: 55%;
+  background-color: whitesmoke;
+  margin-top: 10px;
+}
+
+.bviewcell{
+  width: 100%;
+  height: 100%;
+  /* border: 1px solid palegoldenrod; */
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.bottomcell1{
+  width: 100%;
+  height: 60%;
+  background-color: white;
+  /* border: 1px solid burlywood; */
+  /* background:linear-gradient(to bottom,white,#1677b3); */
+
+}
+
+.bottomcell2{
+  width: 100%;
+  height: 50%;
+  /* border: 1px solid blue; */
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 10px;
+  background-color: white;
+}
+
+.img{
+  width: 50px;
+  height: 50px;
+}
+
+.futureweather{
+  width: 100%;
+  height: 100%;
+  /* border: 1px solid green; */
+}
+
+.fwdetail{
+  width: 100%;
+  height: 100%;
+  /* background-color: goldenrod; */
+}
+
+.swview{
+  width: 100%;
+  height: 100%;
+}
+
+.fwdetailcell1{
+  width: 100%;
+  height: 100%;
+  /* background-color: darkkhaki; */
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.fwdetailcell11text{
+  font-size: 20px;
+  position: relative;
+  top: 10px;
+}
+
+.fwdetailcell11{
+  width: 50%;
+  height: 20%;
+  /* background-color: darkkhaki; */
+  font-size: 20px;
+  /* text-align: center; */
+  font-weight: bold;
+  border-bottom: 1px solid gainsboro;
+}
+
+.fwdetailcell12{
+  width: 50%;
+  height: 20%;
+  /* background-color: khaki; */
+  font-size: 20px;
+  text-align: end;
+  font-weight: bold;
+  border-bottom: 1px solid gainsboro;
+}
+
+.fwdetailcell13{
+  width: 50%;
+  height: 80%;
+  /* background-color:lawngreen;  */
+}
+
+.fwdetailcell14{
+  width: 50%;
+  height: 80%;
+  /* background-color:blanchedalmond; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center; 
+}
+.fwdetailcell14text{
+  font-size: 30px;
+}
+
+
+.fwdetailcell21{
+  width: 50%;
+  height: 100%;
+  font-size: 20px;
+}
+
+.fwdetailcell22{
+  width: 50%;
+  height: 100%;
+  text-align: end;
+  font-size: 20px;
+}
+
+.fwdetailcell3{
+  width: 100%;
+  height: 20%;
+  /* background-color: darkblue; */
+}
+
+.fwdetailcell13img{
+  width: 100%;
+  height: 100%;
+}
+
+.bottomcell21{
+  width:24.7%;
+  height: 50%;
+  border-bottom: 1px solid gainsboro; 
+  border-right: 1px solid gainsboro;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* margin: 1px; */
+}
+
+.bc21img{
+  width: 30%;
+  height: 30%;
+}
+
+.bc21text1{
+  font-size: 15px;
+}
+.bc21text2{
+  font-size: 13px;
+  color: gainsboro;
+}

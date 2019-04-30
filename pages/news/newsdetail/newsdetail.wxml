@@ -1,0 +1,4 @@
+<!--pages/news/newsdetail/newsdetail.wxml-->
+<view class='baseview'>
+  <web-view src='{{newsurl}}'></web-view>
+</view>

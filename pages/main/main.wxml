@@ -1,0 +1,38 @@
+<!--pages/one/one.wxml-->
+<view class='baseview'>
+    <view class='swiperview'>
+        <swiper class='swview' indicator-dots='{{true}}' autoplay='{{true}}' circular='{{true}}'>
+            <block wx:for="{{mainPage.swiperimg}}" wx:key="mainPage.swiperimg.imagePath">
+                <navigator url='{{item.navigatorTo}}' open-type='switchTab'>
+                  <swiper-item>
+                        <image class='img' src='{{item.imagePath}}'></image>
+                  </swiper-item>
+                </navigator>
+            </block>
+        </swiper>
+    </view>
+
+    <view class='contentview'>
+        <text>{{mainPage.functionName}}</text>
+    </view>
+
+    <scroll-view class='scrollview' scroll-y='{{true}}'>
+        <view class='scview'>
+            <block wx:for='{{mainPage.funcModel}}' wx:key="{{mainPage.funcModel.modelName}}">
+                <view class='cell' data-navto='{{item.navigatorTo}}' bindtap='funcNav'>
+                    <image class='funcimg' src='{{item.icon}}'></image>
+                    <text>{{item.modelName}}</text>
+                </view>
+            </block>
+        </view>
+    </scroll-view>
+
+    <!-- <view class='bottomview'>
+        <block wx:for='{{bottomNavBar}}'>
+            <view class='bcell'>
+                <image class='bimg' src='{{item.barIcon}}'></image>
+                <text>{{item.barName}}</text>
+            </view>
+        </block>
+    </view> -->
+</view>

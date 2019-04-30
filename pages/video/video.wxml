@@ -1,0 +1,24 @@
+<!--pages/vedio/vedio.wxml-->
+<view class='baseview'>
+    <video class='video' src='{{src}}' autoplay="{{true}}" title="{{title}}" ></video>
+    
+   <view class='content'>{{video.videoTitle[0]}}</view>
+    <scroll-view class='selectvideo' scroll-x="{{true}}">
+          <block wx:for="{{video.videoList}}">
+              <view class='videocell {{selectIndex==index?"select":""}}' bindtap='selectVideo' data-item='{{item}}' data-index="{{index}}">
+                  <view class='videocell1'>
+                      <text class='videonum {{selectIndex==index?"selecttext":""}}'>第{{index+1}}集</text>
+                      <text class='videoname {{selectIndex==index?"selecttext":""}}'>{{item.name}}</text>
+                  </view>
+              </view>
+          </block> 
+    </scroll-view>
+
+    <view class="introduction" bindtap='showContent' hover-class='hover'>
+        <text>{{video.videoTitle[1]}}</text>
+        <image class='idimg' src="{{isShow?video.videoIcon[0].src:video.videoIcon[1].src}}"></image>
+    </view>
+    <view class='idcontent' hidden='{{isShow}}'>{{video.titleContent.content}}</view>
+
+    
+</view>

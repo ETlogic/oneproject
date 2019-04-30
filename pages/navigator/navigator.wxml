@@ -1,0 +1,16 @@
+<!--pages/navigator/navigator.wxml-->
+<view class='baseview'>
+    <swiper class='swiperview' indicator-dots='{{true}}' indicator-active-color='white' >
+        <block wx:for="{{imageurl}}">
+            <swiper-item>
+              <image class='img' src='{{item}}'></image>
+
+              <block wx:if="{{index==imageurl.length-1}}">
+                <button class='btn' bindtap='gotoone'>立即体验</button>
+              </block>            
+            
+            </swiper-item>
+        
+        </block>
+    </swiper>
+</view>

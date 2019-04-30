@@ -1,0 +1,58 @@
+{
+  "pages": [
+    "pages/scan/scan",
+    "pages/main/main",
+    "pages/telephone/telephoneList/telephoneList",
+    "pages/telephone/telephoneDetail/telephoneDetail",
+    "pages/video/video",
+    "pages/music/music/music",
+    "pages/weather/search/search",
+    "pages/weather/weather/weather",
+    "pages/news/newsdetail/newsdetail",
+    "pages/navigator/navigator",
+    "pages/index/index",
+    "pages/news/news/news",
+    "pages/logs/logs",
+    "pages/navigatorone/navigatorone",
+    "pages/navigatortwo/navigatortwo",
+    "pages/navigatorthree/navigatorthree",
+    "pages/news/news2/news2",
+    "pages/music/musicplay/musicplay"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#1677b3",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle": "black"
+  },
+  "sitemapLocation": "sitemap.json",
+  "tabBar": {
+    "color": "black",
+    "selectedColor": "#1677b3",
+    "list": [
+      {
+        "iconPath": "pages/images/shouye.png",
+        "selectedIconPath": "pages/images/shouye1.png",
+        "pagePath": "pages/main/main",
+        "text": "首页"
+      },
+      {
+        "iconPath": "pages/images/qita.png",
+        "selectedIconPath": "pages/images/qita1.png",
+        "pagePath": "pages/navigatorone/navigatorone",
+        "text": "其他"
+      },
+      {
+        "iconPath": "pages/images/wode.png",
+        "selectedIconPath": "pages/images/wode1.png",
+        "pagePath": "pages/navigatortwo/navigatortwo",
+        "text": "我的"
+      }
+    ]
+  },
+  "permission": {
+    "scope.userLocation": {
+      "desc": "小程序需要获取当前位置信息"
+    }
+  }
+}

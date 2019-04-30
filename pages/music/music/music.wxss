@@ -1,0 +1,139 @@
+/* pages/music/music/music.wxss */
+.baseview{
+  width: 100%;
+  height: 100vh;
+  background-color: #1677b3
+}
+
+.topview{
+  width: 100%;
+  height: 93%;
+  /* border: 1px solid red; */
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+}
+
+.bottomview{
+  width: 100%;
+  height: 7%;
+  border-top:1px solid whitesmoke ;
+  background-color: white;
+  display: flex;
+}
+
+.musictitle{
+  width: 100%;
+  height: 7%;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  background-color: white;
+  display: flex;
+  align-items: center;
+}
+
+.titleimg{
+  width: 5%;
+  height: 43%;
+  margin-left: 15px;
+  margin-right: 10px;
+}
+
+scroll-view{
+  width: 100%;
+  height: 93%;
+}
+
+.musiclist{
+  width: 100%;
+  height: 100%;
+  background: white;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.music{
+  width:97%;
+  height: 10%; 
+  display: flex;
+  /* border: 1px solid honeydew; */
+  align-items: center;
+  /* border-bottom: 1px solid gainsboro; */
+}
+
+.musicimg{
+  width: 12%;
+  height: 70%;
+  /* border: 1px solid blue; */
+  margin-left: 2%;
+  border-radius: 5px;
+}
+
+.musicimgla{
+  width: 7%;
+  height: 43%;
+  /* border: 1px solid blue; */
+  margin-left: 4%;
+  margin-right: 2.5%;
+  border-radius: 5px;
+}
+
+.musicimg2{
+  
+  width: 6%;
+  height: 40%;
+  /* border: 1px solid green; */
+  
+}
+
+.musiccontent{
+  width: 70%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  /* border: 1px solid palevioletred; */
+  justify-content: center;
+  margin-left: 3%;
+}
+
+.musicname{
+  font-size: 15px;
+}
+
+.musicauthor{
+  font-size: 12px;
+  color: gray;
+}
+
+.bottommusic{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center
+}
+
+.bmusicimg1{
+  width: 10%;
+  height: 70%;
+  /* border: 1px solid blue; */
+  margin-left: 2%;
+  border-radius: 50%;
+}
+
+.bmusicimg2{
+  width: 8%;
+  height: 60%;
+  /* border: 1px solid blue; */
+  margin-left: 2%;
+}
+
+.bmusiccontent{
+  width: 65%
+}
+
+.hover{
+  background-color: gainsboro;
+}
