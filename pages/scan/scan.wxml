@@ -25,7 +25,7 @@
                         <view class='scview'>
                             <block wx:if='{{errorReason||productInfo.summary.shopNum==0}}'>
                                 <view class='errorMsg'>
-                                    <text>没有商店比价信息</text>
+                                    <text>无商店比价信息</text>
                                 </view>
                             </block>
                             <block wx:else>
@@ -44,7 +44,7 @@
                         <view class='scview'>
                             <block wx:if='{{errorReason||productInfo.summary.eshopNum==0}}'>
                                  <view class='errorMsg'>
-                                    <text>没有电商信息</text>
+                                    <text>无电商信息</text>
                                 </view>
                             </block>
                             <block wx:else>
