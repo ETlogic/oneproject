@@ -1,22 +1,22 @@
 <!--pages/scan/scan.wxml-->
 <view class='baseview'>
     <view class='topview'>
-        <text class='title'>条形码扫描</text>
-        <image class="scanImg" src="http://logic.natapp1.cc/images/scan.png" bindtap='scanBarCode'></image>
+        <text class='title'>{{scan.text[0].text}}</text>
+        <image class="scanImg" src="{{scan.images[0].src}}" bindtap='scanBarCode'></image>
     </view>
     <view class='bottomview'>
         <view class='productInfo'>
-            <text class='infoTitle'>商品信息</text>
+            <text class='infoTitle'>{{scan.text[1].text[0]}}</text>
             <view class='infoDetail'>
-                <text>条形码：{{errorReason?errorReason:productInfo.summary.barcode}}</text>
-                <text>商品名称：{{productInfo.summary.name}}</text>
-                <text>价格：{{productInfo.summary.interval}}</text>
+                <text>{{scan.text[1].text[1]}}：{{errorReason?errorReason:productInfo.summary.barcode}}</text>
+                <text>{{scan.text[1].text[2]}}：{{productInfo.summary.name}}</text>
+                <text>{{scan.text[1].text[3]}}：{{productInfo.summary.interval}}</text>
             </view>
         </view>
 
         <view class='tabsTitle'>
-            <text class='tabsText {{current==0?"active":""}}' id="0"  bindtap='selectCurrent'>比价</text>
-            <text class='tabsText {{current==1?"active":""}}' id="1"  bindtap='selectCurrent'>电商</text>
+            <text class='tabsText {{current==0?"active":""}}' id="0"  bindtap='selectCurrent'>{{scan.text[2].text[0]}}</text>
+            <text class='tabsText {{current==1?"active":""}}' id="1"  bindtap='selectCurrent'>{{scan.text[3].text[0]}}</text>
         </view>
         <view class='swiperview'>
             <swiper class='swview' current='{{current}}' bindchange='changeCurrent'>
@@ -25,14 +25,14 @@
                         <view class='scview'>
                             <block wx:if='{{errorReason||productInfo.summary.shopNum==0}}'>
                                 <view class='errorMsg'>
-                                    <text>无商店比价信息</text>
+                                    <text>{{scan.text[2].text[3]}}</text>
                                 </view>
                             </block>
                             <block wx:else>
                                 <block wx:for="{{productInfo.shop}}">
                                     <view class='shop'>
-                                        <text class='shoptext'>商店:{{item.shopname}}</text>
-                                        <text class='shoptext'>价格:{{item.price}}￥</text>
+                                        <text class='shoptext'>{{scan.text[2].text[1]}}:{{item.shopname}}</text>
+                                        <text class='shoptext'>{{scan.text[2].text[2]}}:{{item.price}}￥</text>
                                     </view>
                                 </block>
                             </block>
@@ -44,17 +44,17 @@
                         <view class='scview'>
                             <block wx:if='{{errorReason||productInfo.summary.eshopNum==0}}'>
                                  <view class='errorMsg'>
-                                    <text>无电商信息</text>
+                                    <text>{scan.text[3].text[2]}}</text>
                                 </view>
                             </block>
                             <block wx:else>
                                 <block wx:for="{{productInfo.eshop}}">
                                     <view class='eshop' bindtap='goShoping'>
                                         <view class="eshopdetail">
-                                            <text class='shoptext' data-dsid='{{item.dsid}}' >电商:{{item.shopname}}</text>
-                                            <text class='shoptext' data-dsid='{{item.dsid}}' >价格:{{item.price}}￥</text>
+                                            <text class='shoptext' data-dsid='{{item.dsid}}' >{{scan.text[3].text[0]}}:{{item.shopname}}</text>
+                                            <text class='shoptext' data-dsid='{{item.dsid}}' >{{scan.text[3].text[1]}}:{{item.price}}￥</text>
                                         </view>
-                                        <image class="eshopimg" src='http://logic.natapp1.cc/images/shoppingcart.png'></image>   
+                                        <image class="eshopimg" src='{{scan.images[1].src}}'></image>   
                                     </view>
                                 </block>
                             </block>

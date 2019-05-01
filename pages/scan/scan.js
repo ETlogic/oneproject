@@ -1,10 +1,12 @@
 // pages/scan/scan.js
+let scan = getApp()
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
+      scan:{},
       barCode:"",
       cityId:"",
       productInfo: {},
@@ -104,6 +106,8 @@ Page({
         })
       }
     })
+
+    this.setData({ scan: scan.globalData.pageDatas.scan})
 
     setTimeout(this.scanBarCode(),500)
 
