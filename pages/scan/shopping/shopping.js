@@ -1,33 +1,19 @@
-// pages/navigator/navigator.js
+// pages/scan/shopping/shopping.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    imageurl: [
-      "http://logic.natapp1.cc/images/gy1.png",
-      "http://logic.natapp1.cc/images/gy2.png",
-      "http://logic.natapp1.cc/images/gy3.png",
-      ]
+      url:""
   },
-
-/**
- * 进入首页按钮跳转one页面
- */
-  gotoone(){
-
-    wx.switchTab({
-      url: '../main/main',
-    })
-  },
-
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+      console.log("options:"+options)
+      this.setData({url:options.url})
   },
 
   /**

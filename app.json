@@ -1,7 +1,7 @@
 {
   "pages": [
-    "pages/scan/scan",
     "pages/main/main",
+    "pages/scan/scan",
     "pages/telephone/telephoneList/telephoneList",
     "pages/telephone/telephoneDetail/telephoneDetail",
     "pages/video/video",
@@ -17,7 +17,8 @@
     "pages/navigatortwo/navigatortwo",
     "pages/navigatorthree/navigatorthree",
     "pages/news/news2/news2",
-    "pages/music/musicplay/musicplay"
+    "pages/music/musicplay/musicplay",
+    "pages/scan/shopping/shopping"
   ],
   "window": {
     "backgroundTextStyle": "light",

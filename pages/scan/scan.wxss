@@ -8,7 +8,7 @@
 .topview{
   width: 100%;
   height: 6%;
-  /* background-color: palegoldenrod; */
+  background-color: #1677b3;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -20,38 +20,162 @@
   line-height: 50px;
   /* border: 1px solid red; */
   text-align: center;
-  padding-left: 10px;
+  padding-left: 10%;
   font-size: 17px;
 }
 
 .scanImg{
-  width: 7.5%;
+  width: 10%;
   height: 70%;
   /* border: 1px solid palevioletred; */
+  margin-right: 20px;
 }
 
 .bottomview{
   width: 100%;
   height: 94%;
-  background-color: palegoldenrod;
+  background-color: whitesmoke;
   display: flex;
   flex-direction: column;
-  justify-content: space-around
+  align-items: center;
 }
 
 .productInfo{
-  width: 100%;
-  height: 30%;
-  border: 1px solid rebeccapurple;
+  width: 96%;
+  height: 20%;
+  border: 1px solid whitesmoke;
   display: flex;
   flex-direction: column;
+  margin-bottom: 5px;
+  margin-top: 5px;
+  border-radius: 5px;
+  box-shadow: 2px 2px 2px gainsboro;
 }
 
+.infoTitle{
+  width: 100%;
+  height: 20%;
+  border-bottom: 1px solid gainsboro;
+  font-size: 17px;
+  background-color: white;
+
+}
 .infoDetail{
   width: 100%;
+  height: 80%;
+  display: flex;
+  flex-direction: column;
+  font-size: 16px;
+    /* border: 1px solid honeydew; */
+  background-color: white;
+
+}
+
+.tabsTitle{
+  width: 100%;
+  height: 4%;
+  /* border: 1px solid red; */
+  display: flex;
+  justify-content: space-around;
+  margin-top: 3px;
+}
+
+.tabsText{
+  width: 20%;
+  /* height: 40px; */
+  /* line-height: 40px; */
+  /* border: 1px solid burlywood; */
+  text-align: center;
+  font-size: 17px;
+}
+
+.swiperview{
+  width: 100%;
+  height: 75%;
+  /* background-color: whitesmoke; */
+}
+
+.swview{
+  width: 100%;
+  height: 100%;
+}
+
+.active{
+  color: #1677b3;
+  border-bottom: 1px solid #1677b3;
+}
+
+.scrollview{
+  width: 100%;
+  height: 100%;
+}
+
+.scview{
+  width: 100%;
+  height: 100%;
+  background-color: whitesmoke;
+  /* display: flex;
+  flex-direction: column;
+  flex-wrap: wrap; */
+}
+
+.shop{
+  width: 100%;
+  height: 15%;
+  display: flex;
+  flex-direction: column;
+  /* border-bottom: 1px solid gainsboro; */
+  margin-bottom: 2px;
+  justify-content: center;
+  background-color: white
+
+}
+
+.shoptext{
+  margin-left: 10px;
+  font-size: 15px;
+    /* border: 1px solid red; */
+  text-align: left;
+
+}
+
+.eshop{
+  width: 100%;
+  height: 15%;
+  display: flex;
+  margin-bottom: 2px;
+  background-color: white;
+  align-items: center;
+}
+
+.eshopdetail{
+  width: 85%;
   height: 100%;
   display: flex;
   flex-direction: column;
-    border: 1px solid honeydew;
+  justify-content: center;
+  /* border: 1px solid rebeccapurple; */
+}
 
+.eshopimg{
+  width: 7%;
+  height: 50%;
+}
+
+.errorMsg{
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  background-color: white;
+  /* border: 1px solid red; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+}
+
+::-webkit-scrollbar{
+  width: 0;
+  height: 0;
+  background: transparent;
 }

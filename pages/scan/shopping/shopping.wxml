@@ -1,0 +1,4 @@
+<!--pages/scan/shopping/shopping.wxml-->
+<view class='baseview'>
+  <web-view src="{{url}}"></web-view>
+</view>

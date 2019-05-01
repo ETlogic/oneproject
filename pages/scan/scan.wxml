@@ -8,28 +8,60 @@
         <view class='productInfo'>
             <text class='infoTitle'>商品信息</text>
             <view class='infoDetail'>
-                <text>条形码：</text>
-                <text>商品名称：</text>
-                <text>价格：</text>
+                <text>条形码：{{errorReason?errorReason:productInfo.summary.barcode}}</text>
+                <text>商品名称：{{productInfo.summary.name}}</text>
+                <text>价格：{{productInfo.summary.interval}}</text>
             </view>
         </view>
 
-        <view class='productInfo'>
-            <text class='infoTitle'>价格比对</text>
-            <view class='infoDetail'>
-                <text>条形码：</text>
-                <text>商品名称：</text>
-                <text>价格：</text>
-            </view>
+        <view class='tabsTitle'>
+            <text class='tabsText {{current==0?"active":""}}' id="0"  bindtap='selectCurrent'>比价</text>
+            <text class='tabsText {{current==1?"active":""}}' id="1"  bindtap='selectCurrent'>电商</text>
         </view>
-
-        <view class='productInfo'>
-            <text class='infoTitle'>电商购买</text>
-            <view class='infoDetail'>
-                <text>条形码：</text>
-                <text>商品名称：</text>
-                <text>价格：</text>
-            </view>
+        <view class='swiperview'>
+            <swiper class='swview' current='{{current}}' bindchange='changeCurrent'>
+                <swiper-item >
+                    <scroll-view class='scrollview' scroll-y="{{true}}">
+                        <view class='scview'>
+                            <block wx:if='{{errorReason||productInfo.summary.shopNum==0}}'>
+                                <view class='errorMsg'>
+                                    <text>没有商店比价信息</text>
+                                </view>
+                            </block>
+                            <block wx:else>
+                                <block wx:for="{{productInfo.shop}}">
+                                    <view class='shop'>
+                                        <text class='shoptext'>商店:{{item.shopname}}</text>
+                                        <text class='shoptext'>价格:{{item.price}}￥</text>
+                                    </view>
+                                </block>
+                            </block>
+                        </view>
+                    </scroll-view>
+                </swiper-item>
+                <swiper-item>
+                  <scroll-view class='scrollview' scroll-y="{{true}}">
+                        <view class='scview'>
+                            <block wx:if='{{errorReason||productInfo.summary.eshopNum==0}}'>
+                                 <view class='errorMsg'>
+                                    <text>没有电商信息</text>
+                                </view>
+                            </block>
+                            <block wx:else>
+                                <block wx:for="{{productInfo.eshop}}">
+                                    <view class='eshop' bindtap='goShoping'>
+                                        <view class="eshopdetail">
+                                            <text class='shoptext' data-dsid='{{item.dsid}}' >电商:{{item.shopname}}</text>
+                                            <text class='shoptext' data-dsid='{{item.dsid}}' >价格:{{item.price}}￥</text>
+                                        </view>
+                                        <image class="eshopimg" src='http://logic.natapp1.cc/images/shoppingcart.png'></image>   
+                                    </view>
+                                </block>
+                            </block>
+                        </view>
+                    </scroll-view>
+                </swiper-item>
+            </swiper>
         </view>
     </view>
 </view>
