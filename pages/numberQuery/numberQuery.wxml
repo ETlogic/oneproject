@@ -1,0 +1,82 @@
+<!--pages/numberQuery/numberQuery.wxml-->
+<view class='baseview'>
+  <view class='topview'>
+        <view class='searchview'>
+            <image class="searchimg"src='http://logic.natapp1.cc/images/search.png'></image>
+            <input class='searchinput' placeholder='请输入手机号|身份证|银行卡号' bindinput='getInput'></input>
+        </view>
+        <button class="searchbtn" bindtap='numberQuery'>搜索</button>
+  </view>
+
+  <view class='bottomview'>
+      <block wx:if="{{sid=='S101'}}">
+          <view class='content'>
+              <view class='cell1'>
+                  <text class="ctext1">手机号:</text>
+                  <text class="ctext2">{{data.mobile}}</text>
+              </view>
+              <view class='cell1'>
+                  <text class="ctext1">卡类型:</text>
+                  <text class="ctext2">{{data.phoneArea}}</text>
+              </view>
+          </view>
+      </block>
+      <block wx:elif="{{sid=='S102'}}">
+          <view class='content'>
+              <view class='cell1'>
+                  <text class="ctext1">身份证:</text>
+                  <text class="ctext2">{{data.idcard}}</text>
+              </view>
+              <view class='cell1'>
+                  <text class="ctext1">籍贯:</text>
+                  <text class="ctext2">{{data.area}}</text>
+              </view>
+              <view class='cell1'>
+                  <text class="ctext1">性别:</text>
+                  <text class="ctext2">{{data.sex}}</text>
+              </view>
+              <view class='cell1'>
+                  <text class="ctext1">生日:</text>
+                  <text class="ctext2">{{data.birthday}}</text>
+              </view>
+              <view class='cell1'>
+                  <text class="ctext1">属相:</text>
+                  <text class="ctext2">{{data.zodiac}}</text>
+              </view>
+              <view class='cell1'>
+                  <text class="ctext1">星座:</text>
+                  <text class="ctext2">{{data.constellation}}</text>
+              </view>
+          </view>
+      </block>
+
+      <block wx:elif="{{sid=='S100'}}">
+          <view class='content'>
+              <view class='cell1'>
+                  <text class="ctext1 ctextbank1">银行卡号:</text>
+                  <text class="ctext2">{{data.bankCard}}</text>
+              </view>
+              <view class='cell1'>
+                  <text class="ctext1 ctextbank1">银行电话:</text>
+                  <text class="ctext2">{{data.bankMobile}}</text>
+              </view>
+              <view class='cell1'>
+                  <text class="ctext1 ctextbank1">银行名称:</text>
+                  <text class="ctext2">{{data.bankName}}</text>
+              </view>
+              <view class='cell1'>
+                  <text class="ctext1 ctextbank1">卡类型:</text>
+                  <text class="ctext2">{{data.cardType}}</text>
+              </view>
+              <view class='cell1'>
+                  <text class="ctext1 ctextbank1">银行官网:</text>
+                  <text class="ctext2">{{data.site}}</text>
+              </view>
+              <image class="banklogo" src='{{data.logo}}'></image>
+          </view>
+      </block>
+
+  </view>
+</view>
+
+

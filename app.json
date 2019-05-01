@@ -1,6 +1,7 @@
 {
   "pages": [
     "pages/main/main",
+    "pages/numberQuery/numberQuery",
     "pages/scan/scan",
     "pages/telephone/telephoneList/telephoneList",
     "pages/telephone/telephoneDetail/telephoneDetail",
