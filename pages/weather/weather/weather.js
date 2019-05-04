@@ -150,7 +150,7 @@ Page({
     let that = this
 
     
-    weather.forEach((data, index) => {
+    weather.some((data, index) => {
       
       let fa = Number(data.weather_id.fa)
       
@@ -160,7 +160,7 @@ Page({
           "index": index,
           "imgPath": that.data.weather.weatherImg[0].imagePath,
         }])
-        return
+        return true
       }
       else if (fa == 1) {
         // console.log('多云')
@@ -168,7 +168,8 @@ Page({
           "index": index,
           "imgPath": that.data.weather.weatherImg[2].imagePath,
         }])
-        return
+        return true
+
       }
       else if (fa == 2) {
         // console.log('阴')
@@ -176,7 +177,7 @@ Page({
           "index": index,
           "imgPath": that.data.weather.weatherImg[1].imagePath,
         }])
-        return
+        return true
       }
       else if (2 <= fa <= 12) {
         // console.log('雨')
@@ -184,7 +185,7 @@ Page({
           "index": index,
           "imgPath": that.data.weather.weatherImg[3].imagePath,
         }])
-        return
+        return true
       }
       else if (13 <= fa <= 17 || 21 <= fa <= 28) {
         // console.log('雪')
@@ -200,7 +201,7 @@ Page({
           "index": index,
           "imgPath": that.data.weather.weatherImg[5].imagePath,
         }])
-        return
+        return true
       }
       else if (fa == 19) {
         // console.log('冻雨')
@@ -208,7 +209,7 @@ Page({
           "index": index,
           "imgPath": that.data.weather.weatherImg[7].imagePath,
         }])
-        return
+        return true
       }
       else if (fa == 20 || 29 <= fa <= 31) {
         // console.log('沙城暴')
@@ -216,7 +217,7 @@ Page({
           "index": index,
           "imgPath": that.data.weather.weatherImg[6].imagePath,
         }])
-        return
+        return true
       }
     })
     console.log("输出weatherImg的值")
