@@ -44,7 +44,7 @@
                         <view class='scview'>
                             <block wx:if='{{errorReason||productInfo.summary.eshopNum==0}}'>
                                  <view class='errorMsg'>
-                                    <text>{scan.text[3].text[2]}}</text>
+                                    <text>{{scan.text[3].text[2]}}</text>
                                 </view>
                             </block>
                             <block wx:else>

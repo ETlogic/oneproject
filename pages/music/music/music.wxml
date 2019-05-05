@@ -26,9 +26,9 @@
         </scroll-view>
     </view>
     <view class='bottomview'>
-        <view class='bottommusic'  >
-            <image class='bmusicimg1' src="{{img}}"></image>
-            <view class='musiccontent bmusiccontent'>
+        <view class='bottommusic'>
+            <image class='bmusicimg1' src="{{img}}" bindtap='musicDetail'></image>
+            <view class='musiccontent bmusiccontent' bindtap='musicDetail'>
                 <text class="musicname">{{name}}</text>
                 <text class='musicauthor'>{{author}}</text>
             </view>

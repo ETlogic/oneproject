@@ -1,2 +1,32 @@
 <!--pages/music/musicplay/musicplay.wxml-->
-<audio controls='{{true}}' name='{{name}}' src='{{url}}'></audio>
+<view class='baseview'>
+  <view class='topview'>
+      <image class='musicImg' src='{{music.musiclist[currentMusic].img}}'></image>
+  </view>
+  <view class='middle'>
+      <text class='middleText1'>{{currentPosition}}</text>
+      <slider block-size="{{12}}" max='{{sliderMax}}' value='{{sliderValue}}' activeColor='white' bindchange='setPosition'></slider>
+      <text class='middleText2'>{{musicDuration}}</text>
+  </view>
+  <view class='bottom'>
+      <block wx:if="{{playMode==0}}">
+          <image class='bottomImg' src="http://logic.natapp1.cc/images/music/xunhuan.png" bindtap='changeMode'></image>
+      </block>
+      <block wx:if="{{playMode==1}}">
+          <image class='bottomImg' src="http://logic.natapp1.cc/images/music/suiji.png" bindtap='changeMode' ></image>
+      </block>
+      <block wx:if="{{playMode==2}}">
+          <image class='bottomImg' src="http://logic.natapp1.cc/images/music/danqu.png" bindtap='changeMode'></image>
+      </block>
+
+      <image class='bottomImg' src="http://logic.natapp1.cc/images/music/back.png"></image>
+      <block wx:if="{{isplay==true}}">
+          <image class='bottomImg playMenu' src="{{music.musicIcon[1].src}}" bindtap='clickPause'></image>
+      </block>
+      <block wx:else>
+          <image class='bottomImg playMenu' src="{{music.musicIcon[0].src}}" bindtap='clickPlay'></image>
+      </block>
+      <image class='bottomImg' src="http://logic.natapp1.cc/images/music/next.png"></image>
+  </view>
+</view>
+

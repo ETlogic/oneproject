@@ -1,1 +1,67 @@
 /* pages/music/musicplay/musicplay.wxss */
+.baseview{
+  width: 100%;
+  height: 100vh;
+  /* background: gainsboro; */
+  background-image: url(http://logic.natapp1.cc/images/13056.jpg);
+  /* opacity: 0.5  */
+}
+
+.topview{
+  width: 100%;
+  height: 80%;
+  /* background-color: beige; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* background-image: url('http://logic.natapp1.cc/music/picture/WechatIMG30.jpeg'); */
+   /* opacity: 0.5 */
+}
+
+.middle{
+  width: 100%;
+  height: 7%;
+  /* background-color:palegoldenrod; */
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  font-size: 13px;
+}
+
+.middleText1{
+  margin-left: 10px;
+}
+
+.middleText2{
+  margin-right: 10px;
+}
+
+slider{
+  width: 80%;
+}
+
+.bottom{
+  width: 100%;
+  height: 13%;
+  /* background-color:azure; */
+  display: flex;
+  justify-content: space-around;
+  align-items: center
+}
+
+.musicImg{
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  border: 1px solid white
+}
+
+.bottomImg{
+  width: 36px;
+  height: 36px;
+}
+
+.playMenu{
+  width: 60px;
+  height: 60px;
+}

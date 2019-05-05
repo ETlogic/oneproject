@@ -1,6 +1,6 @@
 // pages/music/music/music.js
 let music = getApp()
-let innerAudioContext = wx.createInnerAudioContext()
+const backgroundAudio = getApp().globalData.backgroundAudio
 
 Page({
 
@@ -13,9 +13,10 @@ Page({
     name: "",
     author: "",
     img:"",
-    isplay:false,
-    isDefault:true,
-    currentMusic:"none"
+    isplay: music.globalData.musicIsPlay,        //播放状态
+    isDefault:true,       
+    currentMusic:null, //当前播放音乐id
+    previousMusic:null,  //上一首音乐id
   },
 
   /**
@@ -29,13 +30,13 @@ Page({
     let img = e.currentTarget.dataset.music.img
     let currentMusic = e.currentTarget.id
 
-    // wx.navigateTo({
-    //   url: '/pages/music/musicplay/musicplay?url=' + url+'&author='+author+"&name="+name,
-    // })
+    this.setData({previousMusic:this.data.currentMusic})
     this.setData({ src: src, name: name, author: author, img: img, isDefault: false, currentMusic: currentMusic}) 
+    music.globalData.currentMusic = currentMusic
 
-    innerAudioContext.src = src
+    backgroundAudio.src = src
 
+    backgroundAudio.title= name
 
   },
 
@@ -43,8 +44,7 @@ Page({
    * 暂停音乐
    */
   musicPause(){
-    innerAudioContext.pause()
-
+    backgroundAudio.pause()
   },
 
   /**
@@ -53,14 +53,23 @@ Page({
   musicPlay(){
 
     if (this.data.isDefault){
-      innerAudioContext.src = this.data.src
-      this.setData({ isDefault: false, currentMusic:0})
-
+      backgroundAudio.src = this.data.src
+      backgroundAudio.title = this.data.name
+      this.setData({ previousMusic: this.data.currentMusic})
+      this.setData({ isDefault: false, currentMusic: music.globalData.currentMusic})
     }
     else{
-      innerAudioContext.play()
+      backgroundAudio.play()
     }
   },
+
+
+  musicDetail(){
+    wx.navigateTo({
+      url: '/pages/music/musicplay/musicplay?currentMusic=' + this.data.currentMusic + "&previousMusic=" + this.data.previousMusic,
+    })
+  },
+
 
   /**
    * 生命周期函数--监听页面加载
@@ -68,30 +77,38 @@ Page({
   onLoad: function (options) {
     //保存music变量
     let music1 = music.globalData.pageDatas.music
+    let currentMusic = music.globalData.currentMusic
 
     //设置自动播放
-    innerAudioContext.autoplay=true
+    // backgroundAudio.autoplay=true
 
     //设置默认播放歌曲
     this.setData({ 
       music: music1, 
-      src: music1.musiclist[0].src, 
-      name: music1.musiclist[0].name,
-      author: music1.musiclist[0].author,
-      img: music1.musiclist[0].img
+      src: music1.musiclist[currentMusic].src, 
+      name: music1.musiclist[currentMusic].name,
+      author: music1.musiclist[currentMusic].author,
+      img: music1.musiclist[currentMusic].img,
+      isplay: music.globalData.musicIsPlay,
+      currentMusic: music.globalData.currentMusic
       })
 
     //播放监听事件
-    innerAudioContext.onPlay(()=>{
-      this.setData({ isplay:true})
+    backgroundAudio.onPlay(()=>{
+      music.globalData.musicIsPlay = true
+      this.setData({ isplay: music.globalData.musicIsPlay})
+      console.log("播放音乐")
     })
 
     //暂停监听事件
-    innerAudioContext.onPause(()=>{
-      this.setData({ isplay: false })
+    backgroundAudio.onPause(()=>{
+      music.globalData.musicIsPlay = false
+      this.setData({ isplay: music.globalData.musicIsPlay })
+
+      console.log("暂停音乐")
     })
 
-    innerAudioContext.onWaiting(()=>{
+    backgroundAudio.onWaiting(()=>{
       wx:wx.showToast({
         title: '歌曲加载中',
         icon: 'none',
@@ -111,7 +128,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    this.onLoad()
   },
 
   /**
@@ -125,7 +142,6 @@ Page({
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-    innerAudioContext.destroy()
   },
 
   /**

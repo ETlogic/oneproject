@@ -1,6 +1,7 @@
 {
   "pages": [
     "pages/main/main",
+    "pages/music/musicplay/musicplay",
     "pages/numberQuery/numberQuery",
     "pages/scan/scan",
     "pages/telephone/telephoneList/telephoneList",
@@ -18,7 +19,6 @@
     "pages/navigatortwo/navigatortwo",
     "pages/navigatorthree/navigatorthree",
     "pages/news/news2/news2",
-    "pages/music/musicplay/musicplay",
     "pages/scan/shopping/shopping"
   ],
   "window": {
