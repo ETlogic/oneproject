@@ -1,7 +1,7 @@
 <!--pages/music/musicplay/musicplay.wxml-->
 <view class='baseview'>
   <view class='topview'>
-      <image class='musicImg' src='{{music.musiclist[currentMusic].img}}'></image>
+      <image class='musicImg' src='{{music.musiclist[currentMusic].img}}' animation="{{animationDatas}}"></image>
   </view>
   <view class='middle'>
       <text class='middleText1'>{{currentPosition}}</text>
@@ -19,14 +19,14 @@
           <image class='bottomImg' src="http://logic.natapp1.cc/images/music/danqu.png" bindtap='changeMode'></image>
       </block>
 
-      <image class='bottomImg' src="http://logic.natapp1.cc/images/music/back.png"></image>
+      <image class='bottomImg' src="http://logic.natapp1.cc/images/music/back.png" bindtap='previous'></image>
       <block wx:if="{{isplay==true}}">
           <image class='bottomImg playMenu' src="{{music.musicIcon[1].src}}" bindtap='clickPause'></image>
       </block>
       <block wx:else>
           <image class='bottomImg playMenu' src="{{music.musicIcon[0].src}}" bindtap='clickPlay'></image>
       </block>
-      <image class='bottomImg' src="http://logic.natapp1.cc/images/music/next.png"></image>
+      <image class='bottomImg' src="http://logic.natapp1.cc/images/music/next.png" bindtap='next'></image>
   </view>
 </view>
 

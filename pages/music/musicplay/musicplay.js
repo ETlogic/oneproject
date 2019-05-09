@@ -8,6 +8,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    music:null,
     url: null,
     name: null,
     author:null,
@@ -15,11 +16,60 @@ Page({
     isplay: music.globalData.musicIsPlay,        //播放状态
     currentMusic: null, //当前播放音乐id
     previousMusic: null,  //上一首音乐id
-    musicDuration:null,
-    currentPosition:null,
+    musicDuration:null,   //音乐时长
+    currentPosition:null, //当前时长
     sliderMax:null,
     sliderValue:null,
-    playMode: music.globalData.playMode,
+    playMode: null, //播放模式 0:循环 1:随机 2:单曲
+
+    animationDatas: "",
+    rotateIndex: 0
+  },
+
+  /**
+   * 播放上一首
+   */
+  previous(){
+    let previousMusic = Number(this.data.currentMusic) - 1
+
+    if(previousMusic<0){
+      previousMusic = this.data.music.musiclist.length - 1
+    }
+
+    backgroundAudio.src = this.data.music.musiclist[previousMusic].src
+    backgroundAudio.title = this.data.music.musiclist[previousMusic].name
+    music.globalData.currentMusic = previousMusic
+    this.setData({
+      img: this.data.music.musiclist[previousMusic].img,
+      currentMusic: previousMusic
+    })
+  },
+
+  /**
+   * 播放下一首
+   */
+  next(){
+    let nextMusic = null 
+
+    if (this.data.playMode == 0 || this.data.playMode == 2){
+      nextMusic = Number(this.data.currentMusic) + 1
+
+      if (nextMusic > (this.data.music.musiclist.length - 1)) {
+        nextMusic = 0
+      }
+    }
+    else{
+      nextMusic = Math.floor(Math.random() * this.data.music.musiclist.length)
+
+    }
+
+    backgroundAudio.src = this.data.music.musiclist[nextMusic].src
+    backgroundAudio.title = this.data.music.musiclist[nextMusic].name
+    music.globalData.currentMusic = nextMusic
+    this.setData({
+      img: this.data.music.musiclist[nextMusic].img,
+      currentMusic: nextMusic
+    })
   },
 
   /**
@@ -34,6 +84,7 @@ Page({
 
     this.setData({ playMode: playMode})
     music.globalData.playMode = playMode
+    console.log(music.globalData.playMode)
   },
 
   /**
@@ -58,6 +109,29 @@ Page({
   clickPause(){
     backgroundAudio.pause()
   },
+
+
+  start(n) {
+    console.log("开始动画")
+    console.log(this.data.rotateIndex)
+
+    this.timeInterval = setInterval(() => {
+      this.data.rotateIndex = this.data.rotateIndex + 1
+      console.log("rotateIndex:"+this.data.rotateIndex)
+      this.animation.rotate(15 * (this.data.rotateIndex)).step()
+      this.setData({ animationDatas: this.animation.export() })
+    }, 1000)
+
+  },
+
+  stop() {
+    console.log("暂停动画")
+    if (this.timeInterval > 0) {
+      clearInterval(this.timeInterval)
+    }
+    this.timeInterval = 0;
+  },
+
 
   /**
    * 秒数转换成分秒格式00:00
@@ -103,14 +177,26 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    console.log(music.globalData.playMode)
     this.setData({ 
       isplay: music.globalData.musicIsPlay,
       currentMusic: options.currentMusic, 
       previousMusic:options.previousMusic,
-      music: music.globalData.pageDatas.music
+      music: music.globalData.pageDatas.music,
+      playMode: music.globalData.playMode
     })
 
+    //定义动画参数
+    let animation = wx.createAnimation({
+      duration: 1000,
+      timingFunction: "linear"
+    })
 
+    this.animation = animation
+
+    this.start()
+
+    //获取音乐播放时长，当前播放时长
     wx.getBackgroundAudioPlayerState({
       success:(res)=>{
         console.log(res.duration)
@@ -135,7 +221,10 @@ Page({
     backgroundAudio.onPlay(() => {
       music.globalData.musicIsPlay = true
       this.setData({ isplay: music.globalData.musicIsPlay })
-      console.log("播放音乐")
+      // console.log("播放音乐")
+
+      this.stop()
+      this.start()
     })
 
     //暂停监听事件
@@ -143,9 +232,34 @@ Page({
       music.globalData.musicIsPlay = false
       this.setData({ isplay: music.globalData.musicIsPlay })
 
-      console.log("暂停音乐")
+      this.stop()
+      // console.log("暂停音乐")
     })
 
+    //加载监听事件
+    backgroundAudio.onWaiting(() => {
+      wx: wx.showToast({
+        title: '歌曲加载中',
+        icon: 'none',
+        duration: 3000,
+      })
+    })
+
+
+    //监听自然播放结束事件
+    backgroundAudio.onEnded(()=>{
+      if (this.data.playMode == 0 || this.data.playMode == 1){
+          this.next()
+      }
+      else{
+        backgroundAudio.src = this.data.music.musiclist[this.data.currentMusic].src
+        backgroundAudio.title = this.data.music.musiclist[this.data.currentMusic].name
+      }
+
+      //清空定时函数
+      this.stop()
+      // this.setData({ rotateIndex:0})
+    })
   },
 
   /**

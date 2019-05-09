@@ -1,22 +1,19 @@
-// pages/news/newsdetail/newsdetail.js
+// pages/my/m'y.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-      newsurl:{},
+
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log(options)
-    let newsurl2 = options.newsurl
-    this.setData({ newsurl: newsurl2})
+
   },
- 
 
   /**
    * 生命周期函数--监听页面初次渲染完成

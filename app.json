@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/navigator/navigator",
     "pages/main/main",
     "pages/music/musicplay/musicplay",
     "pages/numberQuery/numberQuery",
@@ -11,7 +12,6 @@
     "pages/weather/search/search",
     "pages/weather/weather/weather",
     "pages/news/newsdetail/newsdetail",
-    "pages/navigator/navigator",
     "pages/index/index",
     "pages/news/news/news",
     "pages/logs/logs",
@@ -19,7 +19,8 @@
     "pages/navigatortwo/navigatortwo",
     "pages/navigatorthree/navigatorthree",
     "pages/news/news2/news2",
-    "pages/scan/shopping/shopping"
+    "pages/scan/shopping/shopping",
+    "pages/my/m'y"
   ],
   "window": {
     "backgroundTextStyle": "light",

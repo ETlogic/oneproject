@@ -17,6 +17,7 @@ Page({
     isDefault:true,       
     currentMusic:null, //当前播放音乐id
     previousMusic:null,  //上一首音乐id
+    playMode: null, //播放模式 0:循环 1:随机 2:单曲
   },
 
   /**
@@ -41,6 +42,36 @@ Page({
   },
 
   /**
+     * 播放下一首
+     */
+  next() {
+    let nextMusic = null
+
+    if (this.data.playMode == 0 || this.data.playMode == 2) {
+      nextMusic = Number(this.data.currentMusic) + 1
+
+      if (nextMusic > (this.data.music.musiclist.length - 1)) {
+        nextMusic = 0
+      }
+    }
+    else {
+      nextMusic = Math.floor(Math.random() * this.data.music.musiclist.length)
+
+    }
+
+    backgroundAudio.src = this.data.music.musiclist[nextMusic].src
+    backgroundAudio.title = this.data.music.musiclist[nextMusic].name
+    music.globalData.currentMusic = nextMusic
+    this.setData({
+      img: this.data.music.musiclist[nextMusic].img,
+      name: this.data.music.musiclist[nextMusic].name,
+      author: this.data.music.musiclist[nextMusic].author,
+      currentMusic: nextMusic
+    })
+  },
+
+
+  /**
    * 暂停音乐
    */
   musicPause(){
@@ -63,7 +94,9 @@ Page({
     }
   },
 
-
+  /**
+   * 跳转播放详情页
+   */
   musicDetail(){
     wx.navigateTo({
       url: '/pages/music/musicplay/musicplay?currentMusic=' + this.data.currentMusic + "&previousMusic=" + this.data.previousMusic,
@@ -90,7 +123,8 @@ Page({
       author: music1.musiclist[currentMusic].author,
       img: music1.musiclist[currentMusic].img,
       isplay: music.globalData.musicIsPlay,
-      currentMusic: music.globalData.currentMusic
+      currentMusic: music.globalData.currentMusic,
+      playMode: music.globalData.playMode
       })
 
     //播放监听事件
@@ -114,6 +148,17 @@ Page({
         icon: 'none',
         duration: 3000,
       })
+    })
+
+    //监听自然结束
+    backgroundAudio.onEnded(()=>{
+      if (this.data.playMode == 0 || this.data.playMode == 1) {
+        this.next()
+      }
+      else {
+        backgroundAudio.src = this.data.music.musiclist[this.data.currentMusic].src
+        backgroundAudio.title = this.data.music.musiclist[this.data.currentMusic].name
+      }
     })
   },
 

@@ -8,7 +8,7 @@
         <scroll-view scroll-y="{{true}}">
             <view class='musiclist'>
               <block wx:for="{{music.musiclist}}">
-                <view class='music' hover-class='hover' id="{{index}}" data-music='{{item}}' bindtap='playMusic'>
+                <view class='music' hover-class='hover' id="{{index}}" data-music='{{item}}' bindtap='{{isplay==true&&index==currentMusic?"musicDetail":"playMusic"}}'>
                     <block wx:if="{{index==currentMusic}}">
                        <image class='musicimgla' src="{{music.musicIcon[3].src}}"></image>
                     </block>

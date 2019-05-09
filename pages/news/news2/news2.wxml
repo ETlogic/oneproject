@@ -15,7 +15,7 @@
                  <scroll-view scroll-y="{{true}}" class='scrollnews'> 
                     <view class='scrollnewscell'>
                      
-                   </view>
+                   </view>             
                 </scroll-view> 
             </swiper-item> -->
             <block wx:for="{{news.type}}" wx:key="{{news.type.typevalue}}">

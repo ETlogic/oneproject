@@ -42,7 +42,6 @@ Page({
         that.setData({ newslist: newslist })
       }
     })
-
   },
 
   /**
