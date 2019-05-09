@@ -20,7 +20,7 @@
     "pages/navigatorthree/navigatorthree",
     "pages/news/news2/news2",
     "pages/scan/shopping/shopping",
-    "pages/my/m'y"
+    "pages/my/my"
   ],
   "window": {
     "backgroundTextStyle": "light",
